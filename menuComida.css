@@ -1,0 +1,160 @@
+#menu{
+
+    border-radius: 5px;
+    height: 350px;
+    width: 700px;
+    background-color:rgb(247, 160, 160);;
+    color:black;
+    margin-left: 350pt;
+    margin-top: 5px;
+    
+    visibility: hidden;
+}
+
+#password{
+    border-radius: 5px;
+    height: 100px;
+    width: 700px;
+    background-color:rgb(245, 189, 189);;
+    color:black;
+    margin-left: 350pt;
+    margin-top: -58px;
+    text-align: center;
+
+}
+
+#ticket{
+    border-radius: 5px;
+    height: 360px;
+    width: 700px;
+    background-color:rgb(143, 39, 39);;
+    color:black;
+    margin-left: 350pt;
+    margin-top: -100px;
+    visibility: hidden;
+}
+#select{
+
+background-color:lavender;
+color:peru;
+border-radius: 6px;
+width: 180px;
+height: 30px;
+margin-left: 80px;
+margin-top: 30px;
+font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-size:large;
+
+}
+#alimento{
+
+color:peru;
+margin-left: 300px;
+font-family:Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+font-size:x-large;
+
+
+}
+
+
+#pago{
+
+background-color: sandybrown;
+border-radius: 5px;
+margin-left: 570px;
+margin-top: 260px;
+width: 100px;
+height: 35px;
+font-family: fantasy;
+ color: rgb(48, 114, 32);
+
+
+}
+
+*{
+
+border-radius: 15px;
+
+}
+#img{
+
+    background-color:wheat;
+width: 230px;
+height: 190px;
+margin-top:-560px;
+margin-left: -250px;
+background-size: 100% 100%;
+}
+
+#rest{
+    margin-left: 10px;
+    border-radius: 5px;
+    font-family: fantasy;
+    color: rgb(109, 104, 102);
+    width: 150px;
+    height: 30px;
+    font-size: large;
+
+
+
+}
+
+#eltotal{
+
+    margin-top: 300px;
+    border-radius: 5px;
+    font-family: fantasy;
+    color:red;
+    width: 100px;
+    height: 30px;
+    font-size: large;
+    text-align: center;
+    visibility: hidden;
+
+}
+#t{
+
+    visibility: hidden;
+}
+
+#contrasenna{
+
+    border-radius: 5px;
+
+}
+
+#contrasenna2{
+
+    border-radius: 5px;
+}
+
+
+ #validar{
+
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    margin-top: 20px;
+    background-color: seagreen;
+    font-family: fantasy;
+    color:khaki; 
+}
+#cuerpo{
+
+    background-size: 100% 100%;
+}
+
+#tot{
+
+    margin-top: -350px;
+    margin-left: 650px;
+    border-radius: 5px;
+    font-family: fantasy;
+    color:rgb(250, 214, 214);
+    width: 400px;
+    height: 330px;
+    font-size: large;
+    text-align: center;
+    background-color: lightcyan;
+    
+}

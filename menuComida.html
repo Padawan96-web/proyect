@@ -1,0 +1,281 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="menuComida.css">
+    <script type="text/javascript">
+
+
+        function validar_form() {
+            var contrasenna = document.getElementById('contrasenna').value;
+            console.log(contrasenna);
+            var contrasenna2 = document.getElementById('contrasenna2').value;
+            console.log(contrasenna2);
+            if (contrasenna == contrasenna2) {
+
+
+
+                if (validar_clave(contrasenna) == true) {
+
+                    alert('Cotraseña Aceptable');
+                    ocultar();
+                    document.getElementById("ticket").style.visibility = "visible";
+                    document.getElementById("eltotal").style.visibility = "visible";
+                    document.getElementById("t").style.visibility = "visible";
+                    document.getElementById("menu").style.visibility = "visible";
+
+                }
+                else {
+                    alert('La contraseña ingresada es muy debil');
+                }
+
+
+            }
+
+
+            else {
+                alert(" Las contraseñas son diferentes");
+            }
+
+        }
+
+        function validar_clave(contrasenna) {
+            // console.log(contrasenna+"contrasenna1");
+            if (contrasenna.length >= 8) {
+                var mayuscula = false;
+                var minuscula = false;
+                var numero = false;
+                var caracter_raro = false;
+
+                for (var i = 0; i < contrasenna.length; i++) {
+                    if (contrasenna.charCodeAt(i) >= 65 && contrasenna.charCodeAt(i) <= 90) {
+                        mayuscula = true;
+                    }
+                    else if (contrasenna.charCodeAt(i) >= 97 && contrasenna.charCodeAt(i) <= 122) {
+                        minuscula = true;
+                    }
+                    else if (contrasenna.charCodeAt(i) >= 48 && contrasenna.charCodeAt(i) <= 57) {
+                        numero = true;
+                    }
+                    else {
+                        caracter_raro = true;
+                    }
+                }
+                if (mayuscula == true && minuscula == true && caracter_raro == true && numero == true) {
+
+                    return true;
+                }
+
+
+            }
+            return false;
+        }
+
+        function ocultar() {
+
+            document.getElementById("password").style.visibility = "hidden";
+
+
+
+        }
+
+
+        function mostrar() {
+
+            document.getElementById("ticket").style.visibility = "visible";
+            document.getElementById("eltotal").style.visibility = "visible";
+            document.getElementById("t").style.visibility = "visible";
+            document.getElementById("menu").style.visibility = "visible";
+
+
+
+        }
+
+
+
+
+
+        function obtenREST() {
+
+            var seleccion = document.getElementById('select');
+            document.getElementById('rest').value = seleccion.selectedIndex;
+            document.getElementById('rest').value = seleccion.options[seleccion.selectedIndex].text;
+            // document.getElementById('img').style.backgroundImage = " url('mcdonalds.png')";
+
+            if (document.getElementById('select').value == "2") {
+
+                document.getElementById("img").style.backgroundImage = "url('mcdonalds.png')";
+
+            }
+            if (document.getElementById('select').value == "3") {
+
+                document.getElementById("img").style.backgroundImage = "url('pub.PNG')";
+
+            }
+
+
+            if (document.getElementById('select').value == "4") {
+
+                document.getElementById("img").style.backgroundImage = "url('burgerking.png')";
+
+            }
+
+            if (document.getElementById('select').value == "5") {
+
+                document.getElementById("img").style.backgroundImage = "url('carls.PNG')";
+
+            }
+            if (document.getElementById('select').value == "6") {
+
+                document.getElementById("img").style.backgroundImage = "url('wings.PNG')";
+
+            }
+            if (document.getElementById('select').value == "7") {
+
+                document.getElementById("img").style.backgroundImage = "url('debarbas.png')";
+
+            }
+
+            if (document.getElementById('select').value == "8") {
+
+                document.getElementById("img").style.backgroundImage = "url('chucke.PNG')";
+
+            }
+
+            // else(document.getElementById('select').value == "1"){
+            // alert("Selecciona un restaurante");
+            // }
+        }
+
+
+        var total = 0;
+
+        function sumar(valor) {
+            total += valor;
+            document.formulario.total.value = total;
+        }
+
+        function restar(valor) {
+            total -= valor;
+            document.formulario.total.value = total;
+        }
+
+
+        function paga(){
+            
+            var fecha;
+ fecha=new Date();
+//document.getElementById("tot").innerHTML="Hoy es: "+fecha.getDate()+"/"+(fecha.getMonth()+1)+"/"+fecha.getFullYear()+"<br>"+"Es La Hora: "+fecha.getHours()+":"+fecha.getMinutes()+":"+fecha.getSeconds();
+
+if (document.getElementById('1').checked==true) {
+
+document.getElementById("tot").innerHTML="POllo"
+
+}
+
+
+        }
+
+    
+
+    </script>
+
+
+</head>
+
+<body id="cuerpo" background="rappi.PNG">
+
+    <div id="menu">
+
+        <select id="select" onChange="obtenREST()">
+
+            <option value="1">Elige tu Restaurante</option>
+            <option value="2" id="1">Mac´Donals</option>
+            <option value="3" id="2">Mc´Cartish pub</option>
+            <option value="4" id="3">Burger King</option>
+            <option value="5" id="4">Carl´s JR.</option>
+            <option value="6" id="5">Wings Army</option>
+            <option value="7" id="6">De BarBas</option>
+            <option value="8" id="7">Chuck ´E Cheese</option>
+
+
+            </form>
+
+        </select>
+
+        <input type="text" id="rest">
+        <div id="alimento">
+            <form name=formulario>
+                <input name="checkbox" id="1" type="checkbox" onClick="if (this.checked) sumar(149); else restar(149)"
+                    value="checkbox">Pollo $149<br>
+                <input name="checkbox" id="2" type="checkbox" onClick="if (this.checked) sumar(90); else restar(90)"
+                    value="checkbox">Hamburgesa con queso $90<br>
+                <input name="checkbox" id="3" type="checkbox" onClick="if (this.checked) sumar(89); else restar(89)"
+                    value="checkbox">Pizza $89<br>
+                <input name="checkbox" id="4" type="checkbox" onClick="if (this.checked) sumar(79); else restar(79)"
+                    value="checkbox">Alitas BBQ $79<br>
+                <input name="checkbox" id="5" type="checkbox" onClick="if (this.checked) sumar(129); else restar(129)"
+                    value="checkbox">Bonwless $129<br>
+                <input name="checkbox" id="6" type="checkbox" onClick="if (this.checked) sumar(60); else restar(60)"
+                    value="checkbox">Tarro de Cerveza $60<br>
+                <input name="checkbox" id="7" type="checkbox" onClick="if (this.checked) sumar(99); else restar(99)"
+                    value="checkbox">Alitas de Puerco $99<br>
+                <input name="checkbox" id="8" type="checkbox" onClick="if (this.checked) sumar(99); else restar(99)"
+                    value="checkbox">Khe Tiras $99<br>
+
+                <b id="t">Total $</b> <input type="text" name="total" value="0" id="eltotal">
+
+
+
+            </form>
+            
+            <div id="img">
+                </div>
+
+        </div>
+
+    </div>
+
+    <div id="password">
+        <div>
+            <label for="contrasenna"> <b> Contrase&ntilde;a </b> </label>
+            <input type="password" id="contrasenna" value="" />
+            <label for="contrasenna"> <b> Confirmar Contrase&ntilde;a </b> </label>
+            <input type="password" id="contrasenna2" value="" />
+            <br />
+            <input type="button" id="validar" onclick="javascript:validar_form();" value="Validar" />
+            <!-- <b>Contraseña:</b> <input type="text" id="pass1"><br><br>
+        <b>Confirmar Contraseña:</b><input type="text" id="pass2"> -->
+        </div>
+    </div>
+
+
+    <div id="ticket">
+
+        <div id="tick">
+
+
+
+        </div>
+
+        
+
+        <input type="button" value="Pagar" onclick="paga()" id="pago"  >
+
+
+
+
+    </div>
+
+    <div id="tot" >
+
+
+
+        </div>
+
+</body>
+
+</html>
