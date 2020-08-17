@@ -1,0 +1,200 @@
+<html lang="en">
+
+<head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>Document</title>
+        <link rel="stylesheet" href="login.css">
+        <script type="text/javascript">
+
+                function ocultar() {
+
+                        document.getElementById("log2").style.visibility = "hidden";
+
+
+
+                }
+
+
+                function mostrar() {
+
+                        document.getElementById("log").style.visibility = "visible";
+
+
+
+                }
+
+
+
+
+                function validar_form() {
+                        contrasenna=document.getElementById('contrasena').value;
+                        console.log(contrasenna);
+                        contrasenna2=document.getElementById('contrasena2').value;
+                        console.log(contrasenna2);
+            
+            if (contrasenna == contrasenna2) {
+
+
+
+                if (validar_clave(contrasenna) == true) {
+                        location.href='bienvenido.html';
+                    alert('Cotraseña Aceptable');
+                    
+
+                }
+                else {
+                    alert('La contraseña ingresada es muy debil');
+                }
+
+
+            }
+
+
+            else {
+                alert(" Las contraseñas son diferentes");
+            }
+
+ 
+
+
+        }
+
+        function montoCuenta(){
+
+          
+                if(document.getElementById(monto)<=50){
+
+alert("El capital debe ser mayor a $50");
+} 
+
+                
+
+        }
+                function validar_clave(contrasenna) {
+                        // console.log(contrasenna+"contrasenna1");
+                        if (contrasenna.length >= 8) {
+                                var mayuscula = false;
+                                var minuscula = false;
+                                var numero = false;
+                                var caracter_raro = false;
+
+                                for (var i = 0; i < contrasenna.length; i++) {
+                                        if (contrasenna.charCodeAt(i) >= 65 && contrasenna.charCodeAt(i) <= 90) {
+                                                mayuscula = true;
+                                        }
+                                        else if (contrasenna.charCodeAt(i) >= 97 && contrasenna.charCodeAt(i) <= 122) {
+                                                minuscula = true;
+                                        }
+                                        else if (contrasenna.charCodeAt(i) >= 48 && contrasenna.charCodeAt(i) <= 57) {
+                                                numero = true;
+                                        }
+                                        else {
+                                                caracter_raro = true;
+                                        }
+                                }
+                                if (mayuscula == true && minuscula == true && caracter_raro == true && numero == true) {
+
+                                        return true;
+                                }
+
+                    }
+                        return false;
+                }
+
+                function validar() {
+
+
+                        var contrasenna,contrasena2,nombr,apep,apem,direc,num,correo,cop,monto;
+                        
+
+                         nombr= document.getElementById("nombrea").value;
+                         console.log(nombr);
+                        apep= document.getElementById("app").value;
+                        console.log(apep);
+                         apem= document.getElementById("apm").value;
+                         console.log(apem);
+                        direc= document.getElementById("direcc").value;
+                        console.log(direc);
+                         num= document.getElementById('tel').value;
+                         console.log(num);
+                        correo=document.getElementById('correo').value;
+                        console.log(correo);
+                        cop= document.getElementById('cp').value;
+                        console.log(cop);
+                        monto= document.getElementById('monto').value;
+                        console.log(monto);
+
+                        if(contrasenna==true&&contrasena2==true&&nombr==true&&apep==true&&apem==true&&direc==true&&num==true&&correo==true&&cop==true&&monto==true){
+                                alert("CUENTA GENERADA");
+                              
+
+                }
+        }
+
+        </script>
+
+
+
+
+
+
+</head>
+
+<body>
+
+
+        <div id="log">
+
+                <div id="lo">
+                        <img src="bbva2.PNG" id="hol">
+
+                </div>
+
+                <center>
+                        <br><br> <input type="text" id="nombrea" placeholder="Nombre" required> <br><br>
+                        <input type="text" id="app" placeholder="Apellido Paterno" required> <br><br>
+                        <input type="text" id="apm" placeholder="Apellido Materno" required> <br><br>
+                        <input type="text" id="direcc" placeholder="Dirección" required> <br><br>
+                        <input type="number" id="tel" placeholder="Telefono" required><br><br>  
+                        <input type="text" id="correo" placeholder="Correo" required><br><br> 
+                        <input type="password" id="contrasena" placeholder="Contraseña" required> <br><br>
+                        <input type="password" id="contrasena2" placeholder="Confirmar contraseña" required><br><br>
+                        <input type="text" id="cp" placeholder="Codigo Postal" required><br><br> 
+                        <span>Monto de Apertura</span><br>
+                        <input type="number" id="monto" placeholder="$" required><br><br>
+                        <input type="submit" id="Regis" value="Registrarte" onclick="validar(),validar_form(),montoCuenta();">
+                </center>
+        </div>
+
+        <div id="log2">
+                <img src="/bbva.png" id="bbva">
+
+
+                <center>
+                        <h1>BIENVENIDO</h1>
+                </center>
+                <input type="text" id="Usuario" placeholder="Usuario"> <br>
+
+                <input type="text" id="Contraseña" placeholder="Contraseña"><br>
+
+                <br>
+                <br>
+
+                <center> <b> ¿Aun no tienes una cuenta? </b></center>
+                <input type="button" id="registra" value="Registrate" onclick="ocultar() , mostrar();">
+
+
+
+        </div>
+
+
+        </div>
+
+
+
+
+</body>
+
+</html>
