@@ -1,0 +1,206 @@
+# proyect
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" type="text/css" href="curp.css">
+    <script type="text/javascript">
+
+        function captcha() {
+
+
+            var captcha = new Array('A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', '1', '2', '3', '4', '5', '6', '7', '8', '9', '0');
+            var i;
+            for (i = 0; i < 5; i++) {
+
+                var a = captcha[Math.floor(Math.random() * captcha.length)];
+                var b = captcha[Math.floor(Math.random() * captcha.length)];
+                var c = captcha[Math.floor(Math.random() * captcha.length)];
+                var d = captcha[Math.floor(Math.random() * captcha.length)];
+                var e = captcha[Math.floor(Math.random() * captcha.length)];
+
+            }
+            var aleatorio = "" + a + "" + b + "" + c + "" + d + "" + e;
+            document.getElementById("captch").value = aleatorio;
+        }
+
+        function validcaptcha() {
+
+            var string1 = document.getElementById("captch").value;
+            var string2 = document.getElementById("codigo").value;
+
+            if (string1 == string2) {
+
+                alert("Validacion Aceptada correctamente");
+                ocultar();
+                document.getElementById("boleta").style.visibility = "visible";
+                
+
+            }
+            else {
+
+                alert("Por favor valida el captcha correctamente");
+                limpiar(texto);
+                
+            }
+
+            function limpiar(texto) {
+
+                texto.value = " ";
+
+            }
+
+
+
+        }
+
+
+        function validcurp() {
+
+            var compara = document.getElementById("curp").value;
+
+            if (isNaN(compara[0]) && isNaN(compara[1]) && isNaN(compara[2]) && isNaN(compara[3])
+                && (compara[4] >= 0 || compara[4] == null) && (compara[5] >= 0 || compara[5] == null)
+                && (compara[6] >= 0 || compara[6] == null) && (compara[7] >= 0 || compara[7] == null)
+                && (compara[8] >= 0 || compara[8] == null) && (compara[9] >= 0 || compara[9] == null)
+                && isNaN(compara[10]) && isNaN(compara[11]) && isNaN(compara[12]) && isNaN(compara[13])
+                && isNaN(compara[14]) && isNaN(compara[15]) && (compara[16] >= 0 || compara[16] == null)
+                && (compara[17] >= 0 || compara[17] == null)) {
+
+
+                document.getElementById("checki").style.backgroundImage = " url('si.PNG')";
+            }
+            else {
+
+                document.getElementById("checki").style.backgroundImage = "url('NO.PNG')";
+
+
+            }
+        }
+        
+
+        function calcular() {
+
+            var c1 = document.getElementById('cal1').value;
+            var c2 = document.getElementById('cal2').value;
+            var c3 = document.getElementById('cal3').value;
+            var c4 = document.getElementById('cal4').value;
+            var c5 = document.getElementById('cal5').value;
+            var c6 = document.getElementById('cal6').value;
+            var c7 = document.getElementById('cal7').value;
+
+            var prom1  = (parseFloat(c1) + parseFloat(c2) + parseFloat(c3) + parseFloat(c4) + parseFloat(c5) + parseFloat(c6) + parseFloat(c7)) / 7;
+            //console.log(c1+c2+c3+c4+c5+c6+c7);
+            
+            document.getElementById('prom2').innerHTML = prom1;
+
+            if(prom1 >= 8){
+           document.getElementById("prom2").style.backgroundColor = "blue";
+
+}
+        else if (prom1 >=6 && prom1 <8) 
+         {
+            document.getElementById("prom2").style.backgroundColor = " yellow";
+
+        }
+        else if (prom1 <6)
+        document.getElementById("prom2").style.backgroundColor = " red";
+
+        }
+
+
+        function mostrar() {
+
+            document.getElementById("boleta").style.visibility = "visible";
+
+        }
+
+        function ocultar() {
+
+            document.getElementById("cuadro").style.visibility = "hidden";
+            
+
+
+        }
+
+
+    </script>
+
+
+
+</head>
+
+<body onload="captcha();">
+    <div id="azul">
+
+        <h2>Consulta</h2>
+    </div>
+    <div id="cuadro">
+
+
+
+        <div>
+            <b>Ingresa tu CURP:</b> <input type="text" id="curp" onkeyup="validcurp()">
+            <div id="checki">
+
+
+            </div>
+        </div>
+        <div id="capcha">
+
+
+            <input type="text" id="captch" disabled>
+            <div>
+                <button class="imagen " onclick="captcha();"></button>
+            </div>
+        </div>
+        <div>
+            <b>Ingrese el Código:</b><input type="text" id="codigo">
+        </div>
+
+        <input type="button" id="boton" value="continuar" onclick="validcaptcha();"  >
+    </div>
+    </div>
+
+    <div id="boleta" >
+
+
+        <div id="linea">
+
+            <input type="text" class="alumno" placeholder="Nombre del alumno">
+            <div id="prom2">
+
+
+            </div>
+
+
+
+        </div>
+        <div id="linea1">
+            <input type="text" id="cal1" placeholder="Cal1" class="cal">
+            <input type="text" placeholder="Cal2" id="cal2" class="cal">
+            <input type="text" placeholder="Cal3" id="cal3" class="cal">
+
+        </div>
+        <div id="linea2">
+            <input type="text" placeholder="Cal4" id="cal4" class="cal">
+            <input type="text" placeholder="Cal5" id="cal5" class="cal">
+            <input type="text" placeholder="Cal6" id="cal6" class="cal">
+
+        </div>
+
+        <div id="linea3">
+
+            <input type="text" placeholder="Cal7" id="cal7" class="cal">
+            <input type="button" id="calcu" value="calcular" onclick="calcular()">
+        </div>
+
+
+    </div>
+
+</body>
+
+</html>
